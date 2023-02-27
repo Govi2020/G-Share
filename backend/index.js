@@ -15,10 +15,6 @@ const corsOption = {
     credentials: true,
 };
 
-app.get("/",(req,res) => {
-    res.status(200).send("Welcome to G Share API")
-})
-
 app.use(cors(corsOption));
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +25,11 @@ app.set("view-engine", "ejs");
 require("./db");
 app.use("/file/", fileRouter);
 app.use("/auth/", authRouter);
-app.use(("/user"), userRouter)
+app.use(("/user"), userRouter);
+
+app.get("/",(req,res) => {
+    res.status(200).send("Welcome to G Share API")
+})
 
 
 app.listen(PORT, async () => {
