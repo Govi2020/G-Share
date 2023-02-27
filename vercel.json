@@ -1,0 +1,3 @@
+{
+    "rewrites": [{ "source": "/(.*)", "destination": "./front-end/build/index.html" }]
+}
