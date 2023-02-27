@@ -40,7 +40,7 @@ export const login = async (email, password, dispatch) => {
             position: "bottom-right",
             style: getSnackBarStyles(true),
         });
-        console.log(err);
+        return new Error();
     }
 };
 
@@ -174,7 +174,7 @@ export const getUser = async (id) => {
     }
 };
 
-export const getUserFiles = async (setLoading, setFiles) => {
+export const getUserFiles = async (setLoading, setFiles,setError) => {
     setLoading(true);
     try {
         const res = await axios.get("/file/user", {

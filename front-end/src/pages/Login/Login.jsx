@@ -14,8 +14,12 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await login(email, password, dispatch);
-        navigate("/");
+        try {
+            await login(email, password, dispatch);
+            navigate("/");
+        }catch(err) {
+            console.log(err)
+        }
     };
 
     return (

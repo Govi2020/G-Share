@@ -16,7 +16,7 @@ export default function MyFiles() {
     const [files, setFiles] = useState([]);
     const href = getLink();
     useEffect(() => {
-        getUserFiles(setLoading, setFiles);
+        getUserFiles(setLoading, setFiles,setError);
     }, []);
 
     const copyToClipboard = (value) => {
@@ -72,7 +72,7 @@ export default function MyFiles() {
                                         }}
                                         onClick={async () => {
                                             await deleteFile(file._id,setLoading,setFiles);
-                                            getUserFiles(setLoading, setFiles);
+                                            getUserFiles(setLoading, setFiles,setError);
                                         }}
                                     ></i>
                                 </td>
@@ -86,7 +86,7 @@ export default function MyFiles() {
                 type="submit"
                 disabled={loading}
                 onClick={() => {
-                    getUserFiles(setLoading, setFiles);
+                    getUserFiles(setLoading, setFiles,setError);
                 }}
             >
                 {loading ? (
