@@ -122,7 +122,6 @@ export const createFile = async (filename, url, size, type) => {
                 withCredentials: true,
             }
         );
-        console.log(res.data);
         new Snackbar("Link has been generated", {
             position: "bottom-right",
             style: getSnackBarStyles(true),

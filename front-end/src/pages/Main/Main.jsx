@@ -35,10 +35,9 @@ export default function Main() {
         setFile(e.target.files[0]);
     };
 
-    const copyToClipboard = (text) => {
-        console.log(text);
-        alert(link);
-        navigator.clipboard.writeText(text || link);
+    const copyToClipboard = (t) => {
+        
+        navigator.clipboard.writeText(t || link);
         return new SnackBar("Copied To Clipboard", {
             position: "bottom-right",
             style: getSnackBarStyles(false),
@@ -72,8 +71,8 @@ export default function Main() {
                             fileSizeConverter(file?.size),
                             file?.type
                         );
-                        console.log(result);
                         setLink(href + "download/" + result.link);
+                        console.log(result.link)
                         copyToClipboard(result.link);
                     })
                     .catch(() => {
@@ -179,7 +178,7 @@ export default function Main() {
                     type="button"
                     htmlFor="file_upload"
                     className="btn-primary full sec"
-                    onClick={copyToClipboard}
+                    onClick={() => {copyToClipboard()}}
                     style={{ display: `${link ? "" : "none"}`,marginTop: ".0" }}
                 >
                     Copy Link
