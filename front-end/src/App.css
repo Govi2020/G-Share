@@ -1,0 +1,17 @@
+A.app,#root,html,body {
+    height: 100%;
+}
+
+.rotate {
+    animation: Rotate 1s infinite ease-in-out;
+    animation-duration: 1s;
+}
+
+@keyframes Rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
